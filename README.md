@@ -9,18 +9,18 @@ CLI для управління контактами в телефонній к�
   -h, --help      Show this help message and exit.
   -V, --version   Print version information and exit.
 Commands:
-   add, -a     Додає новий контакт до телефонної книги
-   search, -s  Шукає контакт за ім'ям
-   edit, -e    Редагує існуючий контакт за ім'ям
-   delete, -d  Видаляє контакт за ім'ям
-   list, -ls   Виводить усі контакти
+   --add/-a     Додає новий контакт до телефонної книги
+   --search/-s  Шукає контакт за ім'ям
+   --edit/-e    Редагує існуючий контакт за ім'ям
+   --delete/-d  Видаляє контакт за ім'ям
+   --list/-ls   Виводить усі контакти
 ```
 
 
 
 **add**
 ```
-Usage: phonebook add [-hV] -n=<name> -e[=<emails> [<emails> [<emails>]]] [-e
+Usage: phonebook --add [-hV] -n=<name> -e[=<emails> [<emails> [<emails>]]] [-e
                      [=<emails> [<emails> [<emails>]]]]... -p[=<phones>
                      [<phones> [<phones>]]] [-p[=<phones> [<phones>
                      [<phones>]]]]...
@@ -38,7 +38,7 @@ Usage: phonebook add [-hV] -n=<name> -e[=<emails> [<emails> [<emails>]]] [-e
 **search**
 
 ```
-Usage: phonebook search [-hV] [<name>]
+Usage: phonebook --search [-hV] [<name>]
 Шукає контакт за ім'ям
       [<name>]    Ім'я для пошуку
   -h, --help      Show this help message and exit.
@@ -51,7 +51,7 @@ Usage: phonebook search [-hV] [<name>]
 **delete**
 
 ```
-  Usage: phonebook delete [-hV] -n=<name>
+  Usage: phonebook --delete [-hV] -n=<name>
 Видаляє контакт за ім'ям
   -h, --help          Show this help message and exit.
   -n, --name=<name>   Ім'я для видалення
@@ -62,7 +62,7 @@ Usage: phonebook search [-hV] [<name>]
 **list**
 
 ```
-  Usage: phonebook list [-hV]
+  Usage: phonebook --list [-hV]
 Виводить усі контакти
   -h, --help      Show this help message and exit.
 ```
