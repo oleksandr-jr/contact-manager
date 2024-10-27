@@ -96,12 +96,28 @@ Usage: phonebook --edit/-e [-hV] [<id>]
 * **delete**
 
 ```
-  Usage: phonebook --delete/-d [-hV] -n=<name>
-Видаляє контакт за ім'ям
-  -h, --help          Show this help message and exit.
-  -n, --name=<name>   Ім'я для видалення
+  Usage: phonebook --delete/-d [-hV] [<id>]
+Видаляє контакт за ID
+      [<id>]    ID контакту для видалення
+  -h, --help    Show this help message and exit.
 ```
+#### Приклад:
+```
+>java -jar phonebook.jar -ls
 
+| ID         | FULL NAME            | PHONE                          | EMAIL                                        | 
+| 12340      | Chris Hemsworth      | +380671111111, +380672222222   | chris.h@m.ua, chris.h@gmail.com              | 
+| 12341      | Chris Pratt          | +380673333333, +380674444444   | chris.p@m.ua, chris.p@gmail.com              | 
+| 12342      | Scarlett Johansson   | +380675555555, +380676666666   | Scarlett.j@m.ua, Scarlett.j@gmail.com        | 
+| 12343      | Jeremy Renner        | +380677777777, +380678888888   | Jeremy.r@m.ua, Jeremy.r@gmail.com    
+
+>java -jar phonebook.jar -d 12341 12342
+
+Контакт видалено: 
+| ID         | FULL NAME            | PHONE                          | EMAIL                                        | 
+| 12340      | Chris Hemsworth      | +380671111111, +380672222222   | chris.h@m.ua, chris.h@gmail.com              | 
+| 12343      | Jeremy Renner        | +380677777777, +380678888888   | Jeremy.r@m.ua, Jeremy.r@gmail.com 
+```
 * **list**
 
 ```
