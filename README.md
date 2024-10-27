@@ -53,6 +53,36 @@ Usage: phonebook --edit/-e [-hV] [<id>]
       [<id>]    ID контакту для редагуваняя
   -h, --help    Show this help message and exit.
 ```
+### Приклад:
+```
+
+> java -jar phonebook.jar -ls
+ 
+| ID         | FULL NAME            | PHONE                          | EMAIL                                        | 
+| 5072       | Chris Hemsworth      | +380671111111, +380672222222   | chris.h@m.ua, chris.h@gmail.com              |
+| 335        | Chris Pratt          | +380673333333, +380674444444   | chris.p@m.ua, chris.p@gmail.com              |
+| 3790       | Scarlett Johansson   | +380675555555, +380676666666   | Scarlett.j@m.ua, Scarlett.j@gmail.com        |
+| 2222       | Jeremy Renner        | +380677777777, +380678888888   | Jeremy.r@m.ua, Jeremy.r@gmail.com            |
+
+> java -jar phonebook.jar -e 2222
+
+| ID         | FULL NAME            | PHONE                          | EMAIL                                        | 
+| 2222       | Jeremy Renner        | +380677777777, +380678888888   | Jeremy.r@m.ua, Jeremy.r@gmail.com            |
+
+Телефонна книга - виберiть команду:
+1. Редагувати iм'я
+2. Редагувати телефони
+3. Редагувати email
+4. Вийти
+Ваш вибiр: > 1
+
+1. Введiть нове iм'я: > Jeremy Smit
+
+Контакт оновлено:
+| ID         | FULL NAME            | PHONE                          | EMAIL                                        | 
+| 2222       | Jeremy Smit          | +380677777777, +380678888888   | Jeremy.r@m.ua, Jeremy.r@gmail.com            |
+
+```
 
 
 **delete**
