@@ -46,7 +46,14 @@ Usage: phonebook --search [-hV] [<name>]
 
 Приклад: phonebook -s Jhon
 
-###   Що до **edit** потрібно вирішити чи потрібна команда, чи досить add з перезаписом
+**edit**
+```
+Usage: phonebook --edit/-e [-hV] [<id>]
+Редагує контакт за ID 
+      [<id>]    ID контакту для редагуваняя
+  -h, --help    Show this help message and exit.
+```
+
 
 **delete**
 
