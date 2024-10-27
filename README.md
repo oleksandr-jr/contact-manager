@@ -18,9 +18,9 @@ Commands:
 
 
 
-**add**
+* **add**
 ```
-Usage: phonebook --add [-hV] -n=<name> -e[=<emails> [<emails> [<emails>]]] [-e
+Usage: phonebook --add/-a [-hV] -n=<name> -e[=<emails> [<emails> [<emails>]]] [-e
                      [=<emails> [<emails> [<emails>]]]]... -p[=<phones>
                      [<phones> [<phones>]]] [-p[=<phones> [<phones>
                      [<phones>]]]]...
@@ -32,28 +32,36 @@ Usage: phonebook --add [-hV] -n=<name> -e[=<emails> [<emails> [<emails>]]] [-e
   -p, --phone[=<phones> [<phones> [<phones>]]]            Номер телефону
 ```
 
-
-Приклад: phonebook add -n "Jhon Snow" -p 123456789 22233333 -e 123@qq.ua 234@qq.ua
-
-**search**
+#### Приклад:
+```
+>java -jar phonebook.jar -a -n "Jhon Snow" -p 123456789 22233333 -e 123@qq.ua 234@qq.ua
+```
+* **search**
 
 ```
-Usage: phonebook --search [-hV] [<name>]
+Usage: phonebook --search/-s [-hV] [<name>]
 Шукає контакт за ім'ям
       [<name>]    Ім'я для пошуку
   -h, --help      Show this help message and exit.
 ```
+#### Приклад:
+```
+>java -jar phonebook.jar -s Chris
 
-Приклад: phonebook -s Jhon
+| ID         | FULL NAME            | PHONE                          | EMAIL                                        | 
+| 6728       | Chris Hemsworth      | +380671111111, +380672222222   | chris.h@m.ua, chris.h@gmail.com              |
+| 9578       | Chris Pratt          | +380673333333, +380674444444   | chris.p@m.ua, chris.p@gmail.com              |
 
-**edit**
+```
+
+* **edit**
 ```
 Usage: phonebook --edit/-e [-hV] [<id>]
 Редагує контакт за ID 
       [<id>]    ID контакту для редагуваняя
   -h, --help    Show this help message and exit.
 ```
-### Приклад:
+#### Приклад:
 ```
 
 > java -jar phonebook.jar -ls
@@ -85,23 +93,31 @@ Usage: phonebook --edit/-e [-hV] [<id>]
 ```
 
 
-**delete**
+* **delete**
 
 ```
-  Usage: phonebook --delete [-hV] -n=<name>
+  Usage: phonebook --delete/-d [-hV] -n=<name>
 Видаляє контакт за ім'ям
   -h, --help          Show this help message and exit.
   -n, --name=<name>   Ім'я для видалення
 ```
 
-Приклад: phonebook -d "Jhon Snow"
-
-**list**
+* **list**
 
 ```
-  Usage: phonebook --list [-hV]
+  Usage: phonebook --list/-ls [-hV]
 Виводить усі контакти
   -h, --help      Show this help message and exit.
 ```
 
-Приклад: phonebook -ls
+
+#### Приклад:
+```
+> java -jar phonebook.jar -ls
+
+| ID         | FULL NAME            | PHONE                          | EMAIL                                        |
+| 5072       | Chris Hemsworth      | +380671111111, +380672222222   | chris.h@m.ua, chris.h@gmail.com              |
+| 335        | Chris Pratt          | +380673333333, +380674444444   | chris.p@m.ua, chris.p@gmail.com              |
+| 3790       | Scarlett Johansson   | +380675555555, +380676666666   | Scarlett.j@m.ua, Scarlett.j@gmail.com        |
+| 2222       | Jeremy Renner        | +380677777777, +380678888888   | Jeremy.r@m.ua, Jeremy.r@gmail.com            |
+```
