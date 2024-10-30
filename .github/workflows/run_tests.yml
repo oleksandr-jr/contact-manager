@@ -11,6 +11,7 @@ jobs:
       issues: read
       checks: write
       pull-requests: write
+
     steps:
       - uses: actions/checkout@v3
 
@@ -45,11 +46,8 @@ jobs:
           report_paths: 'target/surefire-reports/*.xml'
           check_name: JUnit Test Report
 
-      - name: codacy-coverage-reporter
-        steps:
-          - uses: actions/checkout@v2
-          - name: Run codacy-coverage-reporter
-            uses: codacy/codacy-coverage-reporter-action@v1.3.0
-            with:
-              project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-              coverage-reports: target/surefire-reports/*.xml
+      - name: Codacy Coverage Reporter
+        uses: codacy/codacy-coverage-reporter-action@v1.3.0
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: target/surefire-reports/*.xml
