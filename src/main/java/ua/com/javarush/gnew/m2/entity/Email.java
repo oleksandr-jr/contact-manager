@@ -12,7 +12,7 @@ public class Email {
         if (email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
             this.email = email;
         } else {
-            throw new RuntimeException();
+            throw new IllegalArgumentException("Invalid email format: " + email);
         }
     }
 }
