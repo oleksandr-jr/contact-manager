@@ -12,7 +12,7 @@ public class PhoneNumber {
         if(phone.matches("^\\(?(\\+?\\d{1,3})?\\)?[-.\\s]?(\\d{2,3})?[-.\\s]?\\d{3}[-.\\s]?\\d{2}[-.\\s]?\\d{2}$")){
             this.phone = phone;
         }else {
-            throw new RuntimeException();
+            throw new IllegalArgumentException("Invalid phone number format: " + phone);
         }
 
     }
