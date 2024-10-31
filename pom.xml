@@ -59,6 +59,12 @@
             <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>info.picocli</groupId>
+            <artifactId>picocli</artifactId>
+            <version>4.7.6</version>
+        </dependency>
     </dependencies>
 
     <build>
