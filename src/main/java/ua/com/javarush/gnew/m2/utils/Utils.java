@@ -1,8 +1,6 @@
 package ua.com.javarush.gnew.m2.utils;
 
 import ua.com.javarush.gnew.m2.dto.ContactDto;
-import ua.com.javarush.gnew.m2.entity.Contact;
-
 import java.util.List;
 
 public class Utils {

@@ -5,7 +5,6 @@ import picocli.CommandLine.Parameters;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import ua.com.javarush.gnew.m2.dto.ContactDto;
-import ua.com.javarush.gnew.m2.entity.Contact;
 import ua.com.javarush.gnew.m2.service.PhoneBookInterface;
 import ua.com.javarush.gnew.m2.utils.Utils;
 

@@ -11,13 +11,13 @@ public class Main {
         System.out.println("Hello 16-fr-implement-basic-cli-support!");
         PhoneBookInterface phoneBook = new SimplePhoneBook();
 
-                int exitCode = new CommandLine(new PhoneBookCLI())
+               new CommandLine(new PhoneBookCLI())
                 .addSubcommand("add", new PhoneBookCLI.AddContact(phoneBook))
                 .addSubcommand("search", new PhoneBookCLI.SearchContact(phoneBook))
                 .addSubcommand("edit", new PhoneBookCLI.EditContact(phoneBook))
                 .addSubcommand("delete", new PhoneBookCLI.DeleteContact(phoneBook))
                 .addSubcommand("list", new PhoneBookCLI.ListContacts(phoneBook))
-//                .addSubcommand("user", new PhoneBookCLI.SetUser(phoneBookContext))
+                .addSubcommand("user", new PhoneBookCLI.SetUser())
                 .execute(args);
     }
 }
