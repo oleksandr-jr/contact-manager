@@ -22,7 +22,7 @@ public class Utils {
         System.out.format(format,
                 "ID",
                 "FULL NAME",
-               "PHONE",
+                "PHONE",
                 "EMAIL");
     }
 

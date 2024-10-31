@@ -59,27 +59,24 @@ public class PhoneBookCLI implements Callable<Integer> {
             return 0;
         }
     }
-//    @Command(name = "user", aliases = {"-u","--user"}, mixinStandardHelpOptions = true, description = "Обрати активного корисувача")
-//    public static class SetUser implements Callable<Integer> {
-//
-//        private final PhoneBookContext phoneBookContext;
-//
-//        @Parameters(index = "0", description = "Ім'я для пошуку", arity = "0..1")
-//        private String user;
-//
-//        public SetUser(PhoneBookContext phoneBookContext) {
-//            this.phoneBookContext = phoneBookContext;
-//        }
-//
-//        @Override
-//        public Integer call() {
-//            phoneBookContext.setUser(user);
-//            System.out.println("Ви обрали користувача: "+user);
-//
-//            return 0;
-//        }
-//    }
-//
+    @Command(name = "user", aliases = {"-u","--user"}, mixinStandardHelpOptions = true, description = "Обрати активного корисувача")
+    public static class SetUser implements Callable<Integer> {
+
+
+        @Parameters(index = "0", description = "Ім'я користувача", arity = "0..1")
+        private String user;
+
+
+        @Override
+        public Integer call() {
+            //TODO Реалізувати логіку команди user
+
+            System.out.println("Ви обрали користувача: "+user);
+
+            return 0;
+        }
+    }
+
 
     @Command(name = "search", aliases = {"-s","--search"}, mixinStandardHelpOptions = true, description = "Шукає контакт за ім'ям")
     public static class SearchContact implements Callable<Integer> {
@@ -117,10 +114,12 @@ public class PhoneBookCLI implements Callable<Integer> {
         public Integer call() {
 
             Optional<ContactDto> optionalContact = phoneBookInterface.getById(id);
-            while (true) {
+
                 if (optionalContact.isPresent()) {
                     ContactDto contactDto = optionalContact.get();
                     Utils.printContactList(List.of(contactDto));
+
+                while (true) {
                     System.out.println("\nТелефонна книга - виберiть команду:");
                     System.out.println("1. Редагувати iм'я");
                     System.out.println("2. Редагувати телефони");
@@ -128,13 +127,13 @@ public class PhoneBookCLI implements Callable<Integer> {
                     System.out.println("4. Вийти");
                     System.out.print("Ваш вибiр: ");
                     choice = scanner.nextLine();
-
                     if(choice.equals("4")) return 0;
-
                     new CommandLine(new EditContactMenu(phoneBookInterface, contactDto)).execute(choice);
                 }
-            }
+            }else  System.out.println("Помилка. Такого контакту не існує. Спробуйте ще раз.");
 
+
+            return 0;
         }
     }
 
