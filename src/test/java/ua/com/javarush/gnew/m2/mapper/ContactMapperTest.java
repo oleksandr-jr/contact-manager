@@ -43,12 +43,12 @@ class ContactMapperTest {
         // Given
         List<String> phoneStrings = Arrays.asList("123-456-7890", "098-765-4321");
         List<String> emailStrings = Arrays.asList("test@example.com", "test2@example.com");
-        ContactDto contactDto = new ContactDto();
-        contactDto.setId(1L);
-        contactDto.setFullName("John Doe");
-        contactDto.setPhones(phoneStrings);
-        contactDto.setEmails(emailStrings);
-
+        ContactDto contactDto = ContactDto.builder().
+                id(1L).
+                fullName("John Doe").
+                phones(phoneStrings).
+                emails(emailStrings).
+                build();
         // When
         Contact contact = mapper.toEntity(contactDto);
 
