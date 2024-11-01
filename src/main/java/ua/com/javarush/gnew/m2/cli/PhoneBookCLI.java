@@ -1,9 +1,9 @@
 package ua.com.javarush.gnew.m2.cli;
 
 import picocli.CommandLine;
-import picocli.CommandLine.Parameters;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
 import ua.com.javarush.gnew.m2.dto.ContactDto;
 import ua.com.javarush.gnew.m2.service.PhoneBookInterface;
 import ua.com.javarush.gnew.m2.utils.Utils;
@@ -23,7 +23,9 @@ public class PhoneBookCLI implements Callable<Integer> {
         return 0;
     }
 
-    @Command(name = "add", aliases = {"-a","--add"}, description = "Додає новий контакт до телефонної книги", mixinStandardHelpOptions = true)
+    @Command(name = "add", aliases = {"-a", "--add"},
+            description = "Додає новий контакт до телефонної книги",
+            mixinStandardHelpOptions = true)
     public static class AddContact implements Callable<Integer> {
 
         private final PhoneBookInterface phoneBookInterface;
@@ -33,7 +35,11 @@ public class PhoneBookCLI implements Callable<Integer> {
 
         @Option(names = {"-p", "--phone"}, description = "Номер телефону", required = true, arity = "0..3")
         private List<String> phones;
-        @Option(names = {"-e", "--email"}, description = "Електронна пошта", required = true, arity = "0..3")
+
+        @Option(names = {"-e", "--email"},
+                description = "Електронна пошта",
+                required = true,
+                arity = "0..3")
         private List<String> emails;
 
         public AddContact(PhoneBookInterface phoneBookInterface) {
@@ -58,26 +64,28 @@ public class PhoneBookCLI implements Callable<Integer> {
             return 0;
         }
     }
-    @Command(name = "user", aliases = {"-u","--user"}, mixinStandardHelpOptions = true, description = "Обрати активного корисувача")
-    public static class SetUser implements Callable<Integer> {
 
+    @Command(name = "user",
+            aliases = {"-u", "--user"},
+            mixinStandardHelpOptions = true,
+            description = "Обрати активного корисувача")
+    public static class SetUser implements Callable<Integer> {
 
         @Parameters(index = "0", description = "Ім'я користувача", arity = "0..1")
         private String user;
-
 
         @Override
         public Integer call() {
             //TODO Реалізувати логіку команди user
 
-            System.out.println("Ви обрали користувача: "+user);
+            System.out.println("Ви обрали користувача: " + user);
 
             return 0;
         }
     }
 
 
-    @Command(name = "search", aliases = {"-s","--search"}, mixinStandardHelpOptions = true, description = "Шукає контакт за ім'ям")
+    @Command(name = "search", aliases = {"-s", "--search"}, mixinStandardHelpOptions = true, description = "Шукає контакт за ім'ям")
     public static class SearchContact implements Callable<Integer> {
 
         private final PhoneBookInterface phoneBookInterface;
@@ -96,10 +104,12 @@ public class PhoneBookCLI implements Callable<Integer> {
         }
     }
 
-    @Command(name = "--edit", aliases = {"-e","--edit"}, description = "Редагує існуючий контакт за ім'ям")
+    @Command(name = "--edit", aliases = {"-e", "--edit"}, description = "Редагує існуючий контакт за ім'ям")
     public static class EditContact implements Callable<Integer> {
         private final PhoneBookInterface phoneBookInterface;
+
         Scanner scanner = new Scanner(System.in);
+
         String choice = "";
 
         @Parameters(index = "0", description = "ID контакта", arity = "1")
@@ -114,9 +124,9 @@ public class PhoneBookCLI implements Callable<Integer> {
 
             Optional<ContactDto> optionalContact = phoneBookInterface.getById(id);
 
-                if (optionalContact.isPresent()) {
-                    ContactDto contactDto = optionalContact.get();
-                    Utils.printContactList(List.of(contactDto));
+            if (optionalContact.isPresent()) {
+                ContactDto contactDto = optionalContact.get();
+                Utils.printContactList(List.of(contactDto));
 
                 while (true) {
                     System.out.println("\nТелефонна книга - виберiть команду:");
@@ -126,17 +136,20 @@ public class PhoneBookCLI implements Callable<Integer> {
                     System.out.println("4. Вийти");
                     System.out.print("Ваш вибiр: ");
                     choice = scanner.nextLine();
-                    if(choice.equals("4")) return 0;
+                    if (choice.equals("4")) return 0;
                     new CommandLine(new EditContactMenu(phoneBookInterface, contactDto)).execute(choice);
                 }
-            }else  System.out.println("Помилка. Такого контакту не існує. Спробуйте ще раз.");
+            } else System.out.println("Помилка. Такого контакту не існує. Спробуйте ще раз.");
 
 
             return 0;
         }
     }
 
-    @Command(name = "--delete", aliases = {"-d", "--delete"}, description = "Видаляє контакт за ID", mixinStandardHelpOptions = true)
+    @Command(name = "--delete",
+            aliases = {"-d", "--delete"},
+            description = "Видаляє контакт за ID",
+            mixinStandardHelpOptions = true)
     public static class DeleteContact implements Callable<Integer> {
 
         private final PhoneBookInterface phoneBookInterface;
@@ -157,7 +170,10 @@ public class PhoneBookCLI implements Callable<Integer> {
         }
     }
 
-    @Command(name = "list", aliases = {"-ls", "--list"}, description = "Виводить усі контакти", mixinStandardHelpOptions = true)
+    @Command(name = "list",
+            aliases = {"-ls", "--list"},
+            description = "Виводить усі контакти",
+            mixinStandardHelpOptions = true)
     public static class ListContacts implements Callable<Integer> {
         private final PhoneBookInterface phoneBookInterface;
 
@@ -171,7 +187,4 @@ public class PhoneBookCLI implements Callable<Integer> {
             return 0;
         }
     }
-
-
 }
-

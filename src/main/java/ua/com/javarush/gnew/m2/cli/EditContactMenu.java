@@ -3,7 +3,6 @@ package ua.com.javarush.gnew.m2.cli;
 
 import picocli.CommandLine;
 import ua.com.javarush.gnew.m2.dto.ContactDto;
-import ua.com.javarush.gnew.m2.entity.Contact;
 import ua.com.javarush.gnew.m2.service.PhoneBookInterface;
 import ua.com.javarush.gnew.m2.utils.Utils;
 
@@ -14,9 +13,14 @@ import java.util.concurrent.Callable;
 @CommandLine.Command(name = "--edit-menu", description = "Редагує існуючий контакт за ім'ям")
 public class EditContactMenu implements Callable<Integer> {
     private final PhoneBookInterface phoneBookInterface;
+
     private final ContactDto contact;
+
     Scanner scanner = new Scanner(System.in);
-    @CommandLine.Parameters(index = "0", description = "ID контакта", arity = "1")
+
+    @CommandLine.Parameters(index = "0",
+            description = "ID контакта",
+            arity = "1")
     private String choice;
 
 
@@ -26,7 +30,7 @@ public class EditContactMenu implements Callable<Integer> {
     }
 
     @Override
-    public Integer call(){
+    public Integer call() {
 
         switch (choice) {
             case "1":
@@ -57,7 +61,7 @@ public class EditContactMenu implements Callable<Integer> {
         return 0;
     }
 
-    private void update(ContactDto contact){
+    private void update(ContactDto contact) {
         phoneBookInterface.edit(contact);
         System.out.println("Контакт оновлено: ");
         Utils.printContactList(List.of(contact));

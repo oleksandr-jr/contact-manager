@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-public class SimplePhoneBook implements PhoneBookInterface{
+public class SimplePhoneBook implements PhoneBookInterface {
     @Override
     public ContactDto add(ContactDto contactDto) {
         return contactDto;
