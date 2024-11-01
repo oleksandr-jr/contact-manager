@@ -1,6 +1,7 @@
 # contact-manager
 
-# Usage
+## Usage
+
 **Команди** (add, search, edit, delete, list)
 
 ```
@@ -25,7 +26,10 @@ Usage: phonebook --user/-u [-hV] [<name>]
       [<name>]    вибір користувача
   -h, --help      Show this help message and exit.
 ```
+
+
 #### Приклад:
+
 ```
 >java -jar phonebook.jar -u alex
 
@@ -34,6 +38,7 @@ Usage: phonebook --user/-u [-hV] [<name>]
 ```
 
 * **add**
+
 ```
 Usage: phonebook --add/-a [-hV] -n=<name> -e[=<emails> [<emails> [<emails>]]] [-e
                      [=<emails> [<emails> [<emails>]]]]... -p[=<phones>
@@ -70,6 +75,7 @@ Usage: phonebook --search/-s [-hV] [<name>]
 ```
 
 * **edit**
+
 ```
 Usage: phonebook --edit/-e [-hV] [<id>]
 Редагує контакт за ID 
@@ -107,7 +113,6 @@ Usage: phonebook --edit/-e [-hV] [<id>]
 
 ```
 
-
 * **delete**
 
 ```
@@ -133,6 +138,7 @@ Usage: phonebook --edit/-e [-hV] [<id>]
 | 12340      | Chris Hemsworth      | +380671111111, +380672222222   | chris.h@m.ua, chris.h@gmail.com              | 
 | 12343      | Jeremy Renner        | +380677777777, +380678888888   | Jeremy.r@m.ua, Jeremy.r@gmail.com 
 ```
+
 * **list**
 
 ```
