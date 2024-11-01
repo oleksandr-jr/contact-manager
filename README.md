@@ -52,10 +52,14 @@ Usage: phonebook --add/-a [-hV] -n=<name> -e[=<emails> [<emails> [<emails>]]] [-
   -p, --phone[=<phones> [<phones> [<phones>]]]            Номер телефону
 ```
 
+
 #### Приклад:
+
 ```
 >java -jar phonebook.jar -a -n "Jhon Snow" -p 123456789 22233333 -e 123@qq.ua 234@qq.ua
 ```
+
+
 * **search**
 
 ```
@@ -64,7 +68,9 @@ Usage: phonebook --search/-s [-hV] [<name>]
       [<name>]    Ім'я для пошуку
   -h, --help      Show this help message and exit.
 ```
+
 #### Приклад:
+
 ```
 >java -jar phonebook.jar -s Chris
 
@@ -82,7 +88,9 @@ Usage: phonebook --edit/-e [-hV] [<id>]
       [<id>]    ID контакту для редагуваняя
   -h, --help    Show this help message and exit.
 ```
+
 #### Приклад:
+
 ```
 
 > java -jar phonebook.jar -ls
@@ -121,7 +129,9 @@ Usage: phonebook --edit/-e [-hV] [<id>]
       [<id>]    ID контакту для видалення
   -h, --help    Show this help message and exit.
 ```
+
 #### Приклад:
+
 ```
 >java -jar phonebook.jar -ls
 
@@ -149,6 +159,7 @@ Usage: phonebook --edit/-e [-hV] [<id>]
 
 
 #### Приклад:
+
 ```
 > java -jar phonebook.jar -ls
 

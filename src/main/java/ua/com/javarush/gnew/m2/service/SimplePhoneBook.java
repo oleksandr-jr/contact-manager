@@ -19,11 +19,12 @@ public class SimplePhoneBook implements PhoneBookInterface {
 
     @Override
     public void edit(ContactDto contact) {
-
+        // TODO: implement this method
     }
 
     @Override
     public void delete(long id) {
+        // TODO: implement this method
 
     }
 
